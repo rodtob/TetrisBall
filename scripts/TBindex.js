@@ -139,18 +139,18 @@ sphere_material = new Physijs.createMaterial(
 
 
 rombo = new Physijs.BoxMesh(
-        new THREE.CubeGeometry( 2, 2, 0.5 ),
+        new THREE.BoxGeometry( 2, 2, 0.5 ),
         cliprombo_material,
         0
         );
 
 botonL = new Physijs.BoxMesh(
-        new THREE.CubeGeometry( 2, 2, 0.5 ),
+        new THREE.BoxGeometry( 2, 2, 0.5 ),
         paleta_material ,
          0
          );
          botonLp = new Physijs.BoxMesh(
-            new THREE.CubeGeometry( 1, 1, 0.5 ),
+            new THREE.BoxGeometry( 1, 1, 0.5 ),
             cliprombo_material ,
              0
              );
@@ -158,12 +158,12 @@ botonL = new Physijs.BoxMesh(
             botonLp.position.z = 0.5;
 
 botonR = new Physijs.BoxMesh(
-         new THREE.CubeGeometry( 2,2, 0.5 ),
+         new THREE.BoxGeometry( 2,2, 0.5 ),
          paleta_material,
          0
          );  
          botonRp = new Physijs.BoxMesh(
-            new THREE.CubeGeometry( 1, 1, 0.5 ),
+            new THREE.BoxGeometry( 1, 1, 0.5 ),
             cliprombo_material,
             0
             );        
@@ -176,13 +176,13 @@ sphere = new Physijs.SphereMesh(
             sphere_material,0);
 
 pIzq = new Physijs.BoxMesh(
-           new THREE.CubeGeometry( 2.5, 0.5, 1,5,5,5 ),
+           new THREE.BoxGeometry( 2.5, 0.5, 1,5,5,5 ),
            paleta_material,
            1
            );
 
 pDerecha = new Physijs.BoxMesh(
-           new THREE.CubeGeometry( 2.5, 0.5, 1,5,5,5 ),
+           new THREE.BoxGeometry( 2.5, 0.5, 1,5,5,5 ),
            paleta_material,
            1
            );
@@ -218,7 +218,7 @@ box = new Physijs.BoxMesh(
 );
 
 cristal = new Physijs.BoxMesh(
-    new THREE.CubeGeometry( 14,19, 0.2 ),
+    new THREE.BoxGeometry( 14,19, 0.2 ),
     transparente,
     0
 );
@@ -340,7 +340,7 @@ function crearRombos(cantidad, tamano, lugarx, lugary, espacioentre){
     var j = 0;
     for (var i = 0; i < cantidad; i++){
         otrorombo = new Physijs.BoxMesh(
-            new THREE.CubeGeometry( 2, 2, 0.5 ),
+            new THREE.BoxGeometry( 2, 2, 0.5 ),
             paleta_material,
             0
             );
@@ -473,7 +473,7 @@ function inter(obj1,obj2){
 
 function crearCubo(colore){
 
-  var geo = new THREE.CubeGeometry( 0.46, 0.46, 0.46 )
+  var geo = new THREE.BoxGeometry( 0.46, 0.46, 0.46 )
 
   var material = new Physijs.createMaterial(
     new THREE.MeshLambertMaterial({ color:colore }),
