@@ -63,9 +63,9 @@
 // # Code
 
 //
-
+import * as THREE from 'three';
 /** @namespace */
-var THREEx		= THREEx 		|| {};
+export const THREEx		= {};
 
 // # Constructor
 THREEx.DomEvents	= function(camera, domElement)
