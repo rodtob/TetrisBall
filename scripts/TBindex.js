@@ -1,7 +1,6 @@
 import * as THREE from 'three';
-import {THREEx} from 'threex';
+import { THREEx } from 'threex';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-
 
 const titulocambia = document.getElementById('titulo');
 
@@ -10,23 +9,11 @@ function fadeout() {
 }
 
 var camera,
-  keyboard,
   renderer,
   scene,
   light,
-  geometry,
-  material,
-  lacabra,
   piso,
-  mpiso,
-  pisomaterial,
-  physics_stats,
-  table,
-  intersect_plane,
-  table_material,
   ground,
-  setMousePosition,
-  mouse_position,
   box,
   sphere_material,
   borde_left,
@@ -35,19 +22,14 @@ var camera,
   box2,
   piso,
   cubo,
-  mtrap,
-  trap,
-  prectangular,
   transparente,
   materialClip,
   cliprombo_material,
   nuevapelota,
   cristal,
-  impulse,
   frames,
   tet2_material,
   rombo,
-  tet1_material,
   pivot,
   Lpivot,
   pDerecha,
@@ -55,27 +37,23 @@ var camera,
   puntos,
   latimeLine,
   scoreboard,
-    impusle,
-    controls,
-    ground_material,
-    paleta_material,
-    pivot_material,
-    botonL,
-    botonLp,
-    botonR,
-    botonRp,
-    sphere,
-    techo,
-    otrorombo,
-
+  impusle,
+  controls,
+  ground_material,
+  paleta_material,
+  pivot_material,
+  botonL,
+  botonLp,
+  botonR,
+  botonRp,
+  sphere,
+  techo,
+  otrorombo,
   score = { player1: 0 };
 
-var keyboard = {};
 
 scoreboard = document.getElementById('scoreBoard');
 
-var tri;
-var raycaster = new THREE.Raycaster();
 //BASE
 
 function init() {
@@ -110,6 +88,16 @@ function init() {
     camera.aspect = window.innerWidth / window.innerHeight;
 
     camera.updateProjectionMatrix();
+  });
+
+  window.addEventListener('keydown', (event) => {
+    console.log(event.keyCode)
+    if (event.keyCode == '37') {
+      moverPizquierda();
+    }
+    if (event.keyCode == '39') {
+      moverPderecha();
+    }
   });
 
   scene = new Physijs.Scene();
@@ -229,13 +217,13 @@ function init() {
   );
 
   pIzq = new Physijs.BoxMesh(
-    new THREE.BoxGeometry(2.5, 0.5, 1, 5, 5, 5),
+    new THREE.BoxGeometry(2.5, 1.2, 1, 5, 5, 5),
     paleta_material,
     1
   );
 
   pDerecha = new Physijs.BoxMesh(
-    new THREE.BoxGeometry(2.5, 0.5, 1, 5, 5, 5),
+    new THREE.BoxGeometry(2.5, 1.2, 1, 5, 5, 5),
     paleta_material,
     1
   );
@@ -413,28 +401,6 @@ function moverPalancas() {
   Lpivot.__dirtyPosition = true;
   botonL.__dirtyPosition = true;
   botonR.__dirtyPosition = true;
-}
-
-function moverCamara() {
-  camera.position.z = 24;
-  camera.position.y = 1;
-  camera.rotation.x = -0.0003;
-}
-
-function keyDown(event) {
-  keyboard[event.keyCode] = true;
-}
-
-function keyUp(event) {
-  keyboard[event.keyCode] = false;
-}
-
-function keyLeft(event) {
-  keyboard[event.keyCode] = true;
-}
-
-function keyRight(event) {
-  keyboard[event.keyCode] = false;
 }
 
 function generarPelota() {
