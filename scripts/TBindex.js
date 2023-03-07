@@ -152,7 +152,7 @@ function init() {
     0.2 //restitution
   );
 
-  tet1_material = new Physijs.createMaterial(
+ const tet1_material = new Physijs.createMaterial(
     new THREE.MeshLambertMaterial({ color: 0xac5861 }),
     6, // hfriction
     0.2 // restitution
